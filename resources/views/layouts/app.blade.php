@@ -10,6 +10,7 @@
 
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+    
 
      <!-- main css -->
     <link rel="stylesheet" href="css/style.css">

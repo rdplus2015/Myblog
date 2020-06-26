@@ -20,44 +20,57 @@
                     <li><a href="{{ route('contact') }}">CONTACT</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
+
+            <li class="active">
+                <a href="#profile" data-toggle="collapse" aria-expanded="false">
                     <i class="fas fa-user"></i>
-                   Ma liste de présence
+                    My profile
                 </a>
-
-                <a href="#">
-                    <i class="fa fa-photo"></i>
-                    Photos
-                </a>
-
-                <a href="#video" data-toggle="collapse" aria-expanded="false">
-                    <i class="fas fa-video"></i>
-                    Vidéos
-                </a>
-                <ul class="collapse list-unstyled" id="video">
-                    <li><a href="#">Cours</a></li>
-                    <li><a href="#">Divertissement</a></li>
+                <ul class="collapse list-unstyled" id="profile">
+                    <li><a href="{{ route('index') }}">See my profile</a></li>
+                    <li><a href="{{ route('about') }}">Edit my profile</a></li>
                 </ul>
+            </li>
 
-                <a href="#game" data-toggle="collapse" aria-expanded="false">
-                    <i class="fas fa-gamepad"></i>
-                    Jeux
+            <li class="active">
+                <a href="#post" data-toggle="collapse" aria-expanded="false">
+                    <i class="fas fa-address-card"></i>
+                    Post
                 </a>
-                <ul class="collapse list-unstyled" id="game">
-                    <li><a href="#">Snake</a></li>
-                    <li><a href="#">Puzzle</a></li>
+                <ul class="collapse list-unstyled" id="post">
+                    <li><a href="{{ route('index') }}">Add a new post</a></li>
+                    <li><a href="{{ route('about') }}">see all posts</a></li>
                 </ul>
+            </li>
 
-                <a href="#">
-                    <i class="fa fa-heart"></i>
-                    Mes Favoris
+            <li class="active">
+                <a href="#category" data-toggle="collapse" aria-expanded="false">
+                    <i class="fas fa-tags"></i>
+                    Category
                 </a>
+                <ul class="collapse list-unstyled" id="category">
+                    <li><a href="{{ route('index') }}">Add a new category</a></li>
+                    <li><a href="{{ route('about') }}">see all categories</a></li>
+                </ul>
+            </li>
 
+            <li class="active">
+                <a href="#author" data-toggle="collapse" aria-expanded="false">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    Author
+                </a>
+                <ul class="collapse list-unstyled" id="author">
+                    <li><a href="{{ route('index') }}">Add a new category</a></li>
+                    <li><a href="{{ route('about') }}">see all Authors</a></li>
+                </ul>
+            </li>
+
+            <!-- 
                 <a href="#" class="">
                     <i class="fas fa-chalkboard-teacher"></i>
                    Espace Instructeur
                 </a>
+            -->
 
             </li>
         </ul>
