@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Maiin 
+
+Route::get('/about', 'MainController@about') -> name('about');
+Route::get('/contact', 'MainController@contact') -> name ('contact');
+Route::get('/lara-admin-mb', 'MainController@dashboard') -> name ('lara-admin-mb');
+
+// Post
+
+
+Route::get('/', 'PostsController@index') -> name('index');
+
+
+
+
