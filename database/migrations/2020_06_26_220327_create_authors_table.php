@@ -18,7 +18,7 @@ class CreateAuthorsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('email');
-            $table->integer('post_id');
+            $table->string('image');
             $table->timestamps();
         });
     }

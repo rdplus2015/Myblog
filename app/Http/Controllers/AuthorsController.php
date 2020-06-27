@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Authors;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AuthorController extends Controller
+class AuthorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,10 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        $authors = Authors::all();
+        return view('Author.index', [
+            'authors' => $authors
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('Author.author_create');
     }
 
     /**
@@ -34,7 +39,23 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $author = new Authors();
+        $author -> name = Auth::user() -> name;
+        $author -> email = Auth::user() -> email;
+        $author -> description = $request -> input('description');
+        
+        $image = $request ->file('image');
+        $imageFullname = $image -> getClientOriginalName();
+        $imageName = pathinfo($imageFullname, PATHINFO_FILENAME );
+        $imageExtension = pathinfo($imageFullname, PATHINFO_EXTENSION);
+
+        $file = time().'_'.$imageName.'.'.$imageExtension;
+        $image -> storeAs('public/author_img/', $file);
+
+        $author -> image = $file;
+    
+        $author -> save();
+        return redirect() -> route('author.index');
     }
 
     /**
@@ -56,7 +77,7 @@ class AuthorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Author.author_edit');
     }
 
     /**

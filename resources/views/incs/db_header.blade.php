@@ -4,8 +4,8 @@
 
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Tableau de bord</h3>
-            <strong>TB</strong>
+            <h3>Dashboard</h3>
+            <strong>DB</strong>
         </div>
 
         <ul class="list-unstyled components">
@@ -15,8 +15,8 @@
                     Menu
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="{{ route('index') }}">ACCUEIL</a></li>
-                    <li><a href="{{ route('about') }}">A PROPOS</a></li>
+                    <li><a href="{{ route('index') }}">HOME</a></li>
+                    <li><a href="{{ route('about') }}">ABOUT</a></li>
                     <li><a href="{{ route('contact') }}">CONTACT</a></li>
                 </ul>
             </li>
@@ -60,8 +60,8 @@
                     Author
                 </a>
                 <ul class="collapse list-unstyled" id="author">
-                    <li><a href="{{ route('index') }}">Add a new category</a></li>
-                    <li><a href="{{ route('about') }}">see all Authors</a></li>
+                    <li><a href="{{ route('author.create') }}">Add a new author</a></li>
+                    <li><a href="{{ route('author.index') }}">see all Authors</a></li>
                 </ul>
             </li>
 
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="ml-auto text-center">
-                    <h2><span class="fas fa-circle text-success"></span></h2>
+                    <h2> {{ Auth::user() -> name }} <span class="fas fa-circle text-success"></span></h2>
                 </div>
             </div>
         </nav>

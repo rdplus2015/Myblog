@@ -11,17 +11,23 @@
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
     
+    <!-- main css -->
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-     <!-- main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- style css -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 
     <title>Hello, world!</title>
   </head>
   <body>
    
-   
-    @include('incs.menu')
-    
+   @if (Auth::check())
+      @include('incs.auth_menu')
+    @else
+      @include('incs.ano_menu')
+   @endif
+  
     @yield('content')
 
     @include('incs.footer')

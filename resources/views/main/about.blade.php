@@ -42,41 +42,19 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mb-5 text-center">
-          <img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-          <h2 class="mb-3 h5">Kate Hampton</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum neque nobis eos quam necessitatibus rerum aliquid est tempore, cupiditate iure at voluptatum dolore, voluptates. Debitis accusamus, beatae ipsam excepturi mollitia.</p>
+        @foreach ($authors as $author)
+          <div class="col-md-6 col-lg-4 mb-5 text-center">
+            <img src="/storage/author_img/{{ $author ->image }}" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+            <h2 class="mb-3 h5">{{ $author -> name }}</h2>
+            <p>{{ $author -> description }}</p>
 
-          <p class="mt-5">
-            <a href="#" class="p-3"><span class="icon-facebook"></span></a>
-            <a href="#" class="p-3"><span class="icon-instagram"></span></a>
-            <a href="#" class="p-3"><span class="icon-twitter"></span></a>
-          </p>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-5 text-center">
-          <img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-          <h2 class="mb-3 h5">Richard Cook</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum neque nobis eos quam necessitatibus rerum aliquid est tempore, cupiditate iure at voluptatum dolore, voluptates. Debitis accusamus, beatae ipsam excepturi mollitia.</p>
-
-          <p class="mt-5">
-            <a href="#" class="p-3"><span class="icon-facebook"></span></a>
-            <a href="#" class="p-3"><span class="icon-instagram"></span></a>
-            <a href="#" class="p-3"><span class="icon-twitter"></span></a>
-          </p>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-5 text-center">
-          <img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-          <h2 class="mb-3 h5">Kevin Peters</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum neque nobis eos quam necessitatibus rerum aliquid est tempore, cupiditate iure at voluptatum dolore, voluptates. Debitis accusamus, beatae ipsam excepturi mollitia.</p>
-
-          <p class="mt-5">
-            <a href="#" class="p-3"><span class="icon-facebook"></span></a>
-            <a href="#" class="p-3"><span class="icon-instagram"></span></a>
-            <a href="#" class="p-3"><span class="icon-twitter"></span></a>
-          </p>
-        </div>
+            <p class="mt-5">
+              <a href="#" class="p-3"><span class="icon-facebook"></span></a>
+              <a href="#" class="p-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="p-3"><span class="icon-twitter"></span></a>
+            </p>
+          </div>
+        @endforeach
       </div>
     </div>
   </div>

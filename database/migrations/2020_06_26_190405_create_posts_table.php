@@ -20,7 +20,6 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->text('content');
             $table->integer('category_id');
-            $table->integer('comment_id');
             $table->timestamps();
         });
     }

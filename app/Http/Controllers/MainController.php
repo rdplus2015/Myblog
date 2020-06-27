@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Authors;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
    public function about()
    {
-       return view('main.about');
+    $authors = Authors::all(); 
+    return view('main.about', [
+           'authors' => $authors
+       ]);
    }
 
    public function contact()
