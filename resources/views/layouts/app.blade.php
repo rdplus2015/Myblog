@@ -27,6 +27,10 @@
     @else
       @include('incs.ano_menu')
    @endif
+
+   <div class="container">
+    @include('incs.messages')
+  </div>
   
     @yield('content')
 
@@ -40,5 +44,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <!-- font awesone -->
     <script src="https://kit.fontawesome.com/26e0d10ee8.js" crossorigin="anonymous"></script>
+
+    <!-- ckEditor -->
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
   </body>
 </html>

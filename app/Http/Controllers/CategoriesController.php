@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -13,7 +14,10 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categories::all();
+        return view('category.index', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.category_create');
     }
 
     /**
@@ -34,7 +38,12 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Categories();
+        $category -> icon =  $request -> input('icon');
+        $category -> name =  $request -> input('name');
+
+        $category -> save();
+        return redirect() -> route('category.index')-> with('success', 'your category has been successfully created') ;
     }
 
     /**
@@ -56,7 +65,10 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Categories::find($id);
+        return view('category.category_edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -68,7 +80,13 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Categories::find($id);
+
+        $category -> icon =  $request -> input('icon');
+        $category -> name =  $request -> input('name');
+
+        $category -> save();
+        return redirect() -> route('category.index') -> with('success', 'your category has been successfully changed') ;
     }
 
     /**
@@ -79,6 +97,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Categories::find($id);
+        $category -> delete();
+        return redirect() -> route('category.index') -> with('success', 'your category has been successfully deleted') ;
     }
 }

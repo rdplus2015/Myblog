@@ -38,8 +38,9 @@
                     Post
                 </a>
                 <ul class="collapse list-unstyled" id="post">
-                    <li><a href="{{ route('index') }}">Add a new post</a></li>
-                    <li><a href="{{ route('about') }}">see all posts</a></li>
+                    <li><a href="{{ route('post.create') }}">Add a new post</a></li>
+                    <li><a href="{{ route('post.view_all') }}">See all published articles</a></li>
+                    <li><a href="{{ route('post.view_all') }}">See all unpublished articles</a></li>
                 </ul>
             </li>
 
@@ -49,8 +50,8 @@
                     Category
                 </a>
                 <ul class="collapse list-unstyled" id="category">
-                    <li><a href="{{ route('index') }}">Add a new category</a></li>
-                    <li><a href="{{ route('about') }}">see all categories</a></li>
+                    <li><a href="{{ route('category.create') }}">Add a new category</a></li>
+                    <li><a href="{{ route('category.index') }}">See all categories</a></li>
                 </ul>
             </li>
 
@@ -61,7 +62,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="author">
                     <li><a href="{{ route('author.create') }}">Add a new author</a></li>
-                    <li><a href="{{ route('author.index') }}">see all Authors</a></li>
+                    <li><a href="{{ route('author.index') }}">See all Authors</a></li>
                 </ul>
             </li>
 

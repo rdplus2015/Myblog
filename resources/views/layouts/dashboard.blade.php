@@ -27,6 +27,10 @@
 
     @include('incs.db_header')
 
+    <div>
+      @include('incs.messages')
+    </div>
+
     @yield('content')
 
 
@@ -43,6 +47,12 @@
      <script src="{{ asset('js/dashboard.js') }}"></script> 
     <!-- Bootstrap Js CDN -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+     <!-- ckEditor -->
+      <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+      <script> CKEDITOR.replace( 'summary-ckeditor1' );</script>
+      <script> CKEDITOR.replace( 'summary-ckeditor2' );</script>
+      <script> CKEDITOR.replace( 'summary-ckeditor3' );</script>
   
   </body>
 </html>

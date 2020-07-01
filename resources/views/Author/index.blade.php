@@ -11,13 +11,15 @@
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <table class="table">
-                    <thead class="thead-dark mb-5">
+                    <thead class="bg-info text-white mb-5">
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Desccription</th>
                         <th scope="col">Photo</th>
+                        <th scope="col">Number of associated articles</th>
+                        <th scope="col">Action</th>
                       </tr>
                     </thead>
                  @foreach ($authors as $author)
@@ -28,11 +30,13 @@
                         <td>{{ $author -> email }}</td>
                         <td>{{ $author -> description}}</td>
                         <td> <img src="/storage/author_img/{{ $author -> image}}" class="rounded-lg" style="width: 15rem" alt="s"></td>
+                        <td><p>12</p></td>
+                        <td><a href="{{ route('author.edit', $author-> id) }}" class="btn btn-warning mr-2"> Edit</a> <a href="{{ route('author.destroy', $author ->id) }}" class="btn btn-danger mr-2"> Delete</a> </td>
                       </tr>
                     </tbody>
                 @endforeach
                   </table>
-            </div>
+            </div>t
         </div>
     </div>
 

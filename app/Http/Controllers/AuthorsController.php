@@ -55,7 +55,7 @@ class AuthorsController extends Controller
         $author -> image = $file;
     
         $author -> save();
-        return redirect() -> route('author.index');
+        return redirect() -> route('author.index') -> with('success', 'the author was successfully created');
     }
 
     /**
@@ -66,7 +66,7 @@ class AuthorsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -77,7 +77,10 @@ class AuthorsController extends Controller
      */
     public function edit($id)
     {
-        return view('Author.author_edit');
+        $author = Authors::find($id);
+        return view('Author.author_edit',[
+            'author' => $author
+        ]);
     }
 
     /**
@@ -89,7 +92,23 @@ class AuthorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $author = Authors::find($id);
+        $author -> description = $request -> input('description');
+        if ($request ->file('image')) {
+
+            $image = $request ->file('image');
+            $imageFullname = $image -> getClientOriginalName();
+            $imageName = pathinfo($imageFullname, PATHINFO_FILENAME );
+            $imageExtension = pathinfo($imageFullname, PATHINFO_EXTENSION);
+
+            $file = time().'_'.$imageName.'.'.$imageExtension;
+            $image -> storeAs('public/author_img/', $file);
+
+            $author -> image = $file;
+        }
+
+        $author -> save();
+        return redirect() -> route('author.index') -> with('success', 'your changes have been successfully made');
     }
 
     /**
@@ -100,6 +119,8 @@ class AuthorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $author = Authors::find($id);
+        $author ->delete();
+        return redirect() -> route('author.index') -> with('success', 'the author has been successfully deleted');
     }
 }
